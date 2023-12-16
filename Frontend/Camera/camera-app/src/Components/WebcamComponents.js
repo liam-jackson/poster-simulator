@@ -12,11 +12,19 @@ const WebcamComponents = () => {
     console.log(imageSrc);
   };
 
+  function CaptureButton() {
+    return (
+      <button className="captureButton" onClick={capture}>
+        Capture Test Photo
+      </button>
+    );
+  };
+
   return (
     <div>
       <div className="container">
-        <p className="text">Liam is Beautiful</p>
-        <button onClick={capture}>Capture Photo</button>
+        <p className="text">Liam is a Beautiful Ugly Peking Duck</p>
+        <CaptureButton />
       </div>
       <Webcam
         audio={false}
