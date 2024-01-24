@@ -1,6 +1,6 @@
 // src/Components/WebcamComponents.js
 import React, { useRef, useState, useCallback } from 'react';
-import downloadImage from './downloadImage';
+import downloadImage from 'downloadjs';
 import Webcam from 'react-webcam';
 import './WebcamComponents.css';
 
@@ -17,48 +17,23 @@ const WebcamComponents = () => {
     );
   };
 
-  const capture = useCallback(
+  const CaptureWebcamFrame = useCallback(
     () => {
       const imageSrc = webcamRef.current.getScreenshot();
       setImageSrc(imageSrc);
-      // imageUrl.current = imageSrc;
+      imageUrl.current = imageSrc;
     },
     [webcamRef]
   );
 
-  // const capture = () => {
-  //   const imageSrc = webcamRef.current.getScreenshot();
-  //   // Use the captured image as needed (e.g., send to a server, process, etc.)
-  //   console.log(imageSrc);
-  // };
-
-  // const downloadImage = (imageData, imageName) => {
-  //   // to be implemented
-  //   console.log('Saving image as: ' + imageName + ' -> ' + imageUrl);
-  // };
-  // const downloadImage = () => {
-  //   // Create a new link element
-  //   const link = document.createElement('a');
-
-  //   // Set the link's properties
-  //   link.href = imageUrl;
-  //   link.download = 'downloaded_image.jpg'; // Name for the downloaded file
-
-  //   // Append the link to the document and trigger a click
-  //   document.body.appendChild(link);
-  //   link.click();
-
-  //   // Clean up and remove the link
-  //   document.body.removeChild(link);
-  // };
+  // create a function that downloads the image captured by the webcam
+  const DownloadWebcamFrame = () => {
+    downloadImage(imageUrl.current, 'image.jpg');
+  };
 
   return (
     <div>
       <div className="container">
-        <p className="text">Liam is a Beautiful Peking Duck</p>
-        <GenericButton btnName={'CaptureButton'} btnText={'Capture Test Image'} btnHandler={capture} />
-        <GenericButton btnName={'DownloadButton'} btnText={'Download Image'} btnHandler={downloadImage} />
-      </div>
       <Webcam
         audio={false}
         height={720}
@@ -68,6 +43,10 @@ const WebcamComponents = () => {
         mirrored={true}
       />
       <img src={imageSrc} alt="captured_image" />
+        <p className="text">Liam is a Beautiful Peking Duck</p>
+        <GenericButton btnName={'CaptureButton'} btnText={'Capture Test Image'} btnHandler={CaptureWebcamFrame} />
+        <GenericButton btnName={'DownloadButton'} btnText={'Download Image'} btnHandler={DownloadWebcamFrame} />
+      </div>
     </div>
   );
 };
