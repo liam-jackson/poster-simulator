@@ -1,26 +1,26 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-Frontend/Camera/camera-app/node_modules
-Frontend/Camera/camera-app/.pnp
-Frontend/Camera/camera-app/.pnp.js
+frontend/node_modules
+frontend/.pnp
+frontend/.pnp.js
 
 # testing
-Frontend/Camera/camera-app/coverage
+frontend/coverage
 
 # production
-Frontend/Camera/camera-app/build
+frontend/build
 
 # misc
-Frontend/Camera/camera-app/.DS_Store
-Frontend/Camera/camera-app/.env.local
-Frontend/Camera/camera-app/.env.development.local
-Frontend/Camera/camera-app/.env.test.local
-Frontend/Camera/camera-app/.env.production.local
+frontend/.DS_Store
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
 
-Frontend/Camera/camera-app/npm-debug.log*
-Frontend/Camera/camera-app/yarn-debug.log*
-Frontend/Camera/camera-app/yarn-error.log*
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
 
 .history/*
 .vscode/*
