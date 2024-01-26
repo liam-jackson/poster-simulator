@@ -26,10 +26,13 @@ const WebcamComponents = () => {
     [webcamRef]
   );
 
-  // create a function that downloads the image captured by the webcam
   const DownloadWebcamFrame = () => {
     downloadImage(imageUrl.current, 'image.jpg');
   };
+
+  const ClearFrame = () => {
+    setImageSrc(null);
+  }
 
   return (
     <div>
@@ -48,6 +51,8 @@ const WebcamComponents = () => {
       <GenericButton btnName={'CaptureButton'} btnText={'Capture Test Image'} btnHandler={CaptureWebcamFrame} />
 
       <GenericButton btnName={'DownloadButton'} btnText={'Download Image'} btnHandler={DownloadWebcamFrame} />
+
+      <GenericButton btnName={'ClearButton'} btnText={'Clear Image'} btnHandler={ClearFrame} />
 
       </div>
 
