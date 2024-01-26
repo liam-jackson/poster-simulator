@@ -12,7 +12,7 @@ const WebcamComponents = () => {
   function GenericButton({ btnName, btnText, btnHandler }) {
     return (
       <button className={btnName} onClick={btnHandler}>
-        {btnText};
+        {btnText}
       </button>
     );
   };
@@ -36,16 +36,23 @@ const WebcamComponents = () => {
       <div className="container">
       <Webcam
         audio={false}
-        height={720}
         ref={webcamRef}
         screenshotFormat="image/jpeg"
-        width={1280}
+        height={480}
+        width={640}
         mirrored={true}
       />
-      <img src={imageSrc} alt="captured_image" />
-        <p className="text">Liam is a Beautiful Peking Duck</p>
-        <GenericButton btnName={'CaptureButton'} btnText={'Capture Test Image'} btnHandler={CaptureWebcamFrame} />
-        <GenericButton btnName={'DownloadButton'} btnText={'Download Image'} btnHandler={DownloadWebcamFrame} />
+
+      <div className="button-container">
+
+      <GenericButton btnName={'CaptureButton'} btnText={'Capture Test Image'} btnHandler={CaptureWebcamFrame} />
+
+      <GenericButton btnName={'DownloadButton'} btnText={'Download Image'} btnHandler={DownloadWebcamFrame} />
+
+      </div>
+
+      {imageSrc && <img src={imageSrc} alt="captured_image" className="CapturedImage" />}
+
       </div>
     </div>
   );

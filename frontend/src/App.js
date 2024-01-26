@@ -1,11 +1,11 @@
 import React from 'react';
-import WebcamComponent from './Components/WebcamComponents';
+import WebcamComponents from './Components/WebcamComponents';
 
 function App() {
   return (
     <div className="App">
       
-      <WebcamComponent />
+      <WebcamComponents />
     </div>
   );
 }
